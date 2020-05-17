@@ -9,7 +9,7 @@ const BookSchema = new Schema ({
     },
 
     authors: {
-        type: String,
+        type: Array,
         required: true
     },
 
@@ -26,7 +26,16 @@ const BookSchema = new Schema ({
     link: {
         type: String, 
         
+    },
+
+    reviewAuthors: {
+        type: Array,
+    }, 
+
+    reviews:{
+        type: Array,
     }
+    
 
 });
 
