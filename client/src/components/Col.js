@@ -1,4 +1,5 @@
-import React from "react"
+import React from "react";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 function Col(props) {
     const size = props.size.split(" ").map(size => "col-" + size).join(" ");
@@ -8,6 +9,7 @@ function Col(props) {
         {props.children}
       </div>
     );
+    
   }
   
   export default Col;

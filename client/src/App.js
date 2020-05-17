@@ -4,8 +4,10 @@ import AppContainer from "./components/AppContainer";
 
 
 import "./App.css";
-
-function App(){
-  return <AppContainer/>
+class App extends Component {
+  render(){
+    return <AppContainer/>
+  }
+  
 }
 export default App;
