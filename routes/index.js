@@ -1,11 +1,30 @@
 const path = require("path");
 const router = require("express").Router();
 const apiRoutes = require("./api");
-const gbSearch = require("./googlebooks")
+const axios = require("axios");
 
-router.use("/gb", gbSearch);
+
 router.use("/api", apiRoutes);
 
+router.use("/search", function (req, res){
+
+  console.log(req.body.query)
+
+  let query = req.body.query
+
+  axios.get("https://www.googleapis.com/books/v1/volumes?q=" + query + "&maxResults=5" + "&key=" + process.env.API_KEY)
+  
+  .then(function (response){
+  
+      for (i = 0; i <= 4; i++) {
+          console.log(response.data.items[i].volumeInfo)
+      }
+  })
+  
+  .catch (function (error){
+      console.log(error);
+  });
+})
 
 
 // If no API routes are hit, send the React app
