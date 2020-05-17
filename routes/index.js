@@ -12,13 +12,16 @@ router.use("/search", function (req, res){
 
   let query = req.body.query
 
+  let results = [];
+
   axios.get("https://www.googleapis.com/books/v1/volumes?q=" + query + "&maxResults=5" + "&key=" + process.env.API_KEY)
   
   .then(function (response){
   
       for (i = 0; i <= 4; i++) {
-          console.log(response.data.items[i].volumeInfo)
+          results.push(response.data.items[i].volumeInfo);
       }
+      res.json(results);
   })
   
   .catch (function (error){
