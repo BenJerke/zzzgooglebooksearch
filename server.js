@@ -5,7 +5,10 @@ const mongoose = require("mongoose");
 const axios = require("axios");
 const http = require("http").Server(app);
 const routes = require("./routes");
+require("dotenv").config()
+
 const PORT = process.env.PORT || 3001;
+
 const db = require("./models");
 
 // Define middleware here
